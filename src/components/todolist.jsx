@@ -1,22 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 
 //state componet (props-lescomponet)
 //nu putem modifica props
 // dar putem avea mai mute stats in interiorul componetei
 function ToDoList(props) {
-  //isDone prea valoarea/propietatile setata de setData
-  const [isDone, setDone] = useState(false);
-
-  function handleClick(event) {
-    console.log("click press");
-    setDone((prevValue) => {
-      return !prevValue;
-    });
-  }
-  // in style poti adauga o functie booling
+ 
+  
+  // onClick va lua o propietate specificata in App.jsx
   return (
-    <div onClick={handleClick}>
-      <li style={{ textDecoration: isDone ? "line-through" : "none" }}>
+
+    // <div onClick={props.onChecked (props.id)}> 
+    //atunci cand avem o paranteza nu trecem propietate 
+    // ci o chemam imediat, pt a trece o propietate trebui sa avem o functie
+
+    <div onClick={()=>{props.onChecked(props.id)}} >
+      <li>
         {props.list}
       </li>
     </div>
